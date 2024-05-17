@@ -1,0 +1,27 @@
+package CompanyLockers;
+
+public class LockedMeDotCom {
+	
+	private String productName;
+
+public LockedMeDotCom()
+{
+}
+
+public LockedMeDotCom(String productName) {
+	this.productName = productName;
+}
+
+public String getProductName() {
+	return productName;
+}
+
+public void setProductName(String productName) {
+	this.productName = productName;
+}
+
+public String toString() {
+	return "LockedMeDotCom [productName=" + productName + "]";
+}
+
+}
