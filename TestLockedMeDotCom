@@ -1,0 +1,96 @@
+package CompanyLockers;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class TestLockedMeDotCom {
+
+	public static void main(String[] args) {
+		
+		ArrayList<LockedMeDotCom> lockedMeDotcom = new ArrayList<LockedMeDotCom>();
+		
+		lockedMeDotcom.add(new LockedMeDotCom("abcd"));
+		lockedMeDotcom.add(new LockedMeDotCom("efgh"));
+		lockedMeDotcom.add(new LockedMeDotCom("ijkl"));
+		lockedMeDotcom.add(new LockedMeDotCom("mnop"));
+		lockedMeDotcom.add(new LockedMeDotCom("qrst"));
+		
+		try (Scanner s = new Scanner(System.in)) {
+			int ch1=0;
+			int ch2=0;
+			
+System.out.println("-------Welcome to LockedMe.Com-------");
+System.out.println();
+System.out.println("Application developed by Aniketh Sahu");
+System.out.println();
+System.out.println();
+System.out.println("Choose from the desired operation to be performed:");
+System.out.println("1. View All The Products");
+System.out.println("2. More Options");
+ch1 = s.nextInt();
+LockedMeDotCom locks = new LockedMeDotCom();
+switch (ch1) {
+case 1:
+
+			//for (LockedMeDotCom lockedMeDotCom : locks)
+			//System.out.println(lockedMeDotCom);
+				break;
+			
+case 2:
+			
+			System.out.println("1. Add a file.");
+			System.out.println("2. Delete a file.");
+			System.out.println("3. Search a file.");
+			System.out.println("4. Go back to the main menu.");
+			ch2 = s.nextInt();
+			
+			switch (ch2) {
+			case 1: //adding a product
+				System.out.println("Enter the product name");
+				
+				s.nextLine();
+				locks.setProductName(s.nextLine());
+				
+				lockedMeDotcom.add(locks);
+				break;
+			
+			case 2: //deleting a product
+				System.out.println("Enter the product name you want to delete");
+				s.nextLine();
+				String productName = s.nextLine();
+				LockedMeDotCom deleted = null;
+				for(int i =0; i<lockedMeDotcom.size();i++) {
+				
+					if(lockedMeDotcom.get(i).getProductName()==productName) {
+						deleted=lockedMeDotcom.remove(i);
+						break;
+					}
+				}
+				if(deleted != null)
+					
+					System.out.println("Product was deleted");
+				else
+					System.out.println("Product was not found");
+				
+				break;
+				
+			case 3: //searching a product
+				System.out.println("Eneter the product name to be searched");
+				s.nextLine();
+				
+				break;
+			case 4: //back to the main menu
+				
+				break;
+			}
+			break;
+			
+			default:
+				System.out.println("The choice is invalid.");
+			
+}
+		}
+	
+	}
+
+}
